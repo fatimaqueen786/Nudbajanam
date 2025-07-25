@@ -145,6 +145,7 @@
     <!-- Registration Confirmation Message -->
     <div class="confirmation" id="confirmation-message">
       Thank you for registering! Your account will be activated after payment verification. Please wait for confirmation.
+      <p>Redirecting to login page...</p>
     </div>
 
     <!-- Plan Selector -->
@@ -192,7 +193,7 @@
     </div>
 
     <div class="login-link">
-      Already registered? <a href="#">Login Here</a>
+      Already registered? <a href="login.html">Login Here</a>
     </div>
 
     <div class="admin-link">
@@ -236,10 +237,15 @@
       
       // Scroll to confirmation message
       document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth' });
+      
+      // 3 seconds baad login page par redirect
+      setTimeout(function() {
+        window.location.href = "login.html";
+      }, 3000);
     });
 
     window.onload = updatePlanDetails;
   </script>
 
 </body>
-  </html>
+        </html>
