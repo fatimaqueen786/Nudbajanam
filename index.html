@@ -1,69 +1,180 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Islamic Quiz - Register</title>
+  <title>Islamic Quiz - Registration</title>
   <style>
     body {
+      background-color: #f9fdfb;
+      font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f0f0;
     }
+
     .container {
-      max-width: 400px;
-      margin: 50px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      max-width: 420px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
     }
+
     h2 {
       text-align: center;
       color: #2c3e50;
     }
-    input, select {
+
+    .banner {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .note, .quote, .benefits, .trust, .payment-info, .confirmation {
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .note {
+      background-color: #e9f5ff;
+      padding: 10px;
+      border-left: 4px solid #3498db;
+    }
+
+    .quote {
+      background:#dff0d8;
+      padding:10px;
+      border-left:5px solid #4caf50;
+    }
+
+    .benefits ul {
+      padding-left: 20px;
+    }
+
+    .trust {
+      text-align: center;
+      color: gray;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    input[type="file"],
+    select {
       width: 100%;
       padding: 12px;
-      margin: 10px 0;
-      border-radius: 8px;
+      margin: 8px 0 15px;
       border: 1px solid #ccc;
-      box-sizing: border-box;
+      border-radius: 8px;
     }
-    label {
-      font-weight: bold;
-      margin-top: 10px;
-      display: block;
-    }
+
     button {
       width: 100%;
       padding: 12px;
-      background: #1abc9c;
+      background-color: #1abc9c;
       color: white;
       font-size: 16px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      margin-top: 10px;
     }
-    .message {
-      display: none;
-      margin-top: 20px;
-      background: #fff8e1;
+
+    button:hover {
+      background-color: #16a085;
+    }
+
+    .login-link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .login-link a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    .admin-link {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #999;
+    }
+
+    .payment-info {
+      background-color: #fffbe6;
+      padding: 10px;
       border-left: 5px solid #f1c40f;
+    }
+
+    .payment-info strong {
+      display: block;
+      margin-top: 5px;
+    }
+
+    .confirmation {
+      display: none;
+      background-color: #dff0d8;
       padding: 15px;
       border-radius: 8px;
-      font-size: 14px;
-      color: #333;
+      text-align: center;
+      color: #3c763d;
+      border: 1px solid #d6e9c6;
     }
   </style>
 </head>
 <body>
+
   <div class="container">
+    <img src="https://github.com/Sahilpti804/Fatima_Warraich/raw/main/ChatGPT%20Image%20Jun%2024%2C%202025%2C%2003_50_13%20PM.png" alt="Islamic Quiz" class="banner">
+
     <h2>Islamic Quiz - Register</h2>
-    <form onsubmit="handleSubmit(event)">
+
+    <div class="quote">
+      "وَقُل رَّبِّ زِدْنِي عِلْمًا" – Surah Taha (114) <br/>
+      <em>"O my Lord, increase me in knowledge"</em>
+    </div>
+
+    <!-- Registration Confirmation Message -->
+    <div class="confirmation" id="confirmation-message">
+      Thank you for registering! Your account will be activated after payment verification. Please wait for confirmation.
+    </div>
+
+    <!-- Plan Selector -->
+    <label for="plan">Choose Your Plan:</label>
+    <select id="plan" onchange="updatePlanDetails()">
+      <option value="1000">Rs. 1000 Plan</option>
+      <option value="1500" selected>Rs. 1500 Plan</option>
+      <option value="2000">Rs. 2000 Plan</option>
+    </select>
+
+    <div class="note" id="fee-note">
+      <strong>Registration Fee:</strong> Rs. 1500 (One Time)
+    </div>
+
+    <div class="benefits" id="benefits">
+      <ul>
+        <li>✅ Earn Rs. <span id="total-earning">900</span> Daily by Tasks</li>
+        <li>✅ Rs. <span id="referral">500</span> Bonus for Referring 2 Friends</li>
+        <li>✅ Rs. <span id="qa">400</span> for Answering 2 Daily Questions</li>
+        <li>✅ Start Earning from Day 1</li>
+      </ul>
+    </div>
+
+    <div class="payment-info">
+      <strong>JazzCash Payment Details:</strong>
+      Account Number: <strong>03093069635</strong><br>
+      Account Name: <strong>Naima Bibi</strong>
+    </div>
+
+    <form id="registration-form">
       <input type="text" placeholder="Full Name" required />
       <input type="email" placeholder="Email Address" required />
       <input type="tel" placeholder="WhatsApp Number" required />
@@ -74,27 +185,61 @@
       <input type="file" id="screenshot" name="screenshot" accept="image/*" required />
 
       <button type="submit">Register Now</button>
-
-      <div id="success-message" class="message">
-        ✅ <strong>Registration Successful!</strong><br/>
-        Apka account register ho gaya hai.<br/>
-        Kripya 20 minutes tak intezar karein.<br/>
-        Apko dashboard pe automatically le jaya jayega.
-      </div>
     </form>
+
+    <div class="trust">
+      🔐 Secure Platform | 📖 Islamic Knowledge | 💬 WhatsApp Support
+    </div>
+
+    <div class="login-link">
+      Already registered? <a href="#">Login Here</a>
+    </div>
+
+    <div class="admin-link">
+      <strong>Contact Team:</strong> +923481326140 <br>
+      <a href="https://chat.whatsapp.com/FisBY2zq9Kp8dUMo7ydawk" target="_blank">Join WhatsApp Group</a>
+    </div>
   </div>
 
-  <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      const msg = document.getElementById("success-message");
-      msg.style.display = "block";
+  <!-- WhatsApp Chat Button -->
+  <a href="https://wa.me/923481326140" target="_blank" style="position:fixed;bottom:15px;right:15px;z-index:999;">
+    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="Chat"/>
+  </a>
 
-      // Wait 20 minutes then redirect to dashboard.html
-      setTimeout(() => {
-        window.location.href = "dashboard.html";
-      }, 20 * 60 * 1000); // 20 minutes = 1,200,000 ms
+  <!-- Plan Logic Script -->
+  <script>
+    const plans = {
+      1000: { fee: 1000, referral: 350, qa: 250 },
+      1500: { fee: 1500, referral: 500, qa: 400 },
+      2000: { fee: 2000, referral: 650, qa: 550 }
+    };
+
+    function updatePlanDetails() {
+      const selected = document.getElementById("plan").value;
+      const plan = plans[selected];
+
+      document.getElementById("fee-note").innerHTML = `<strong>Registration Fee:</strong> Rs. ${plan.fee} (One Time)`;
+      document.getElementById("referral").innerText = plan.referral;
+      document.getElementById("qa").innerText = plan.qa;
+      document.getElementById("total-earning").innerText = plan.referral + plan.qa;
     }
+
+    // Handle form submission
+    document.getElementById('registration-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Hide the form
+      this.style.display = 'none';
+      
+      // Show confirmation message
+      document.getElementById('confirmation-message').style.display = 'block';
+      
+      // Scroll to confirmation message
+      document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    window.onload = updatePlanDetails;
   </script>
+
 </body>
-</html>
+  </html>
