@@ -1,276 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Islamic Quiz - Login</title>
+    <title>اسلامی کوئز - لاگ ان</title>
     <style>
+        /* اسی طرح کا سٹائل جیسا آپ کے پاس پہلے سے ہے */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f5f5f5;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url('islamic-pattern.png');
-            background-size: cover;
+            direction: rtl;
         }
-        
-        .login-container {
-            background-color: white;
-            padding: 30px;
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            width: 350px;
-            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 25px;
-        }
-        
-        .input-group {
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-        
-        .password-container {
-            position: relative;
-        }
-        
-        .toggle-password {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #7f8c8d;
-        }
-        
-        button {
-            background-color: #1abc9c;
-            color: white;
-            border: none;
-            padding: 12px;
-            width: 100%;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Islamic Quiz - Login</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-image: url('islamic-pattern.png');
-            background-size: cover;
-        }
-        
-        .login-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            width: 350px;
-            text-align: center;
-        }
-        
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 25px;
-        }
-        
-        .input-group {
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-        
-        .password-container {
-            position: relative;
-        }
-        
-        .toggle-password {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #7f8c8d;
-        }
-        
-        button {
-            background-color: #1abc9c;
-            color: white;
-            border: none;
-            padding: 12px;
-            width: 100%;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: #16a085;
-        }
-        
-        .forgot-password {
-            margin-top: 15px;
-            text-align: right;
-        }
-        
-        .forgot-password a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        
-        .register-link {
-            margin-top: 20px;
-            color: #7f8c8d;
-        }
-        
-        .register-link a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: bold;
-        }
+        /* باقی سٹائلز */
     </style>
 </head>
 <body>
-    <div class="login-container">
-        <h2>Islamic Quiz Login</h2>
+    <div class="container">
+        <h1 style="text-align: center;">اسلامی کوئز لاگ ان</h1>
         
         <form id="loginForm">
-            <div class="input-group">
-                <input type="email" id="email" placeholder="Email Address" required>
-            </div>
+            <input type="email" id="email" placeholder="ای میل ایڈریس" required>
+            <input type="password" id="password" placeholder="پاس ورڈ" required>
             
-            <div class="input-group">
-                <div class="password-container">
-                    <input type="password" id="password" placeholder="Password" required>
-                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
-                </div>
-            </div>
-            
-            <button type="submit">Login</button>
-            
-            <div class="forgot-password">
-                <a href="#">Forgot Password?</a>
-            </div>
+            <button type="submit">لاگ ان کریں</button>
         </form>
         
-        <div class="register-link">
-            Don't have an account? <a href="register.html">Register Here</a>
+        <div style="text-align: center; margin-top: 20px;">
+            <p>اکاؤنٹ نہیں ہے؟ <a href="index.html">رجسٹر کریں</a></p>
         </div>
     </div>
 
     <script>
-        // پاسورڈ ٹوگل کرنے کی فنکشن
-        function togglePassword() {
-            const passwordField = document.getElementById('password');
-            if (passwordField.type === 'password') {
-                passwordField.type = 'text';
-            } else {
-                passwordField.type = 'password';
-            }
-        }
-        
-        // فارم سبمیشن ہینڈلر
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             
-            // یہاں سرور سے تصدیق کا کوڈ ہوگا
-            // عارضی طور پر ہم ڈیش بورڈ پر ری ڈائریکٹ کر رہے ہیں
-            window.location.href = 'dashboard.html';
+            // localStorage سے صارف کا ڈیٹا حاصل کریں
+            const userData = JSON.parse(localStorage.getItem(email));
+            
+            if(!userData) {
+                alert("یہ ای میل رجسٹرڈ نہیں ہے!");
+                return;
+            }
+            
+            if(userData.password !== password) {
+                alert("غلط پاس ورڈ!");
+                return;
+            }
+            
+            // کامیاب لاگ ان - موجودہ صارف کو محفوظ کریں
+            localStorage.setItem('currentUser', JSON.stringify(userData));
+            
+            // ڈیش بورڈ پر ری ڈائریکٹ کریں
+            window.location.href = "dashboard.html";
         });
     </script>
 </body>
-</html>￼Enter        button:hover {
-            background-color: #16a085;
-        }
-        
-        .forgot-password {
-            margin-top: 15px;
-            text-align: right;
-        }
-        
-        .forgot-password a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        
-        .register-link {
-            margin-top: 20px;
-            color: #7f8c8d;
-        }
-        
-        .register-link a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    </style>
-</head>
-
-    <div class="login-container">
-        <h2>Islamic Quiz Login</h2>
-        
-        <form id="loginForm">
-            <div class="input-group">
-                <input type="email" id="email" placeholder="Email Address" required>
-            </div>
-            
-            <div class="input-group">
-                <div class="password-container">
-                    <input type="password" id="password" placeholder="Password" required>
-                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
-                </div>
-            </div>
-            
-            <button type="submit">Login</button>
-            
-            <div class="forgot-password">
-                <a href="#">Forgot Password?</a>
-            </div>
-        </form>
-        
-        <div class="register-link">
-            Don't have an account? <a href="register.html">Register Here</a>
-        </div>
+</html>
