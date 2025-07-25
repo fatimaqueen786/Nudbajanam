@@ -1,251 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Islamic Quiz - Registration</title>
-  <style>
-    body {
-      background-color: #f9fdfb;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 420px;
-      margin: 40px auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    }
-
-    h2 {
-      text-align: center;
-      color: #2c3e50;
-    }
-
-    .banner {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 15px;
-    }
-
-    .note, .quote, .benefits, .trust, .payment-info, .confirmation {
-      margin-bottom: 15px;
-      font-size: 14px;
-    }
-
-    .note {
-      background-color: #e9f5ff;
-      padding: 10px;
-      border-left: 4px solid #3498db;
-    }
-
-    .quote {
-      background:#dff0d8;
-      padding:10px;
-      border-left:5px solid #4caf50;
-    }
-
-    .benefits ul {
-      padding-left: 20px;
-    }
-
-    .trust {
-      text-align: center;
-      color: gray;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    input[type="tel"],
-    input[type="file"],
-    select {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-
-    button {
-      width: 100%;
-      padding: 12px;
-      background-color: #1abc9c;
-      color: white;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #16a085;
-    }
-
-    .login-link {
-      text-align: center;
-      margin-top: 15px;
-      font-size: 14px;
-    }
-
-    .login-link a {
-      color: #3498db;
-      text-decoration: none;
-    }
-
-    .login-link a:hover {
-      text-decoration: underline;
-    }
-
-    .admin-link {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 12px;
-      color: #999;
-    }
-
-    .payment-info {
-      background-color: #fffbe6;
-      padding: 10px;
-      border-left: 5px solid #f1c40f;
-    }
-
-    .payment-info strong {
-      display: block;
-      margin-top: 5px;
-    }
-
-    .confirmation {
-      display: none;
-      background-color: #dff0d8;
-      padding: 15px;
-      border-radius: 8px;
-      text-align: center;
-      color: #3c763d;
-      border: 1px solid #d6e9c6;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اسلامی کوئز - رجسٹریشن</title>
+    <style>
+        /* اسی طرح کا سٹائل جیسا آپ کے پاس پہلے سے ہے */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+        .container {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        /* باقی سٹائلز */
+    </style>
 </head>
 <body>
-
-  <div class="container">
-    <img src="https://github.com/Sahilpti804/Fatima_Warraich/raw/main/ChatGPT%20Image%20Jun%2024%2C%202025%2C%2003_50_13%20PM.png" alt="Islamic Quiz" class="banner">
-
-    <h2>Islamic Quiz - Register</h2>
-
-    <div class="quote">
-      "وَقُل رَّبِّ زِدْنِي عِلْمًا" – Surah Taha (114) <br/>
-      <em>"O my Lord, increase me in knowledge"</em>
+    <div class="container">
+        <h1 style="text-align: center;">اسلامی کوئز رجسٹریشن</h1>
+        
+        <form id="registerForm">
+            <input type="text" id="fullName" placeholder="مکمل نام" required>
+            <input type="email" id="email" placeholder="ای میل ایڈریس" required>
+            <input type="tel" id="phone" placeholder="واٹس ایپ نمبر" required>
+            <input type="password" id="password" placeholder="پاس ورڈ" required>
+            <input type="password" id="confirmPassword" placeholder="پاس ورڈ کی تصدیق" required>
+            
+            <button type="submit">رجسٹر کریں</button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 20px;">
+            <p>پہلے سے رجسٹرڈ ہیں؟ <a href="login.html">لاگ ان کریں</a></p>
+        </div>
     </div>
 
-    <!-- Registration Confirmation Message -->
-    <div class="confirmation" id="confirmation-message">
-      Thank you for registering! Your account will be activated after payment verification. Please wait for confirmation.
-      <p>Redirecting to login page...</p>
-    </div>
-
-    <!-- Plan Selector -->
-    <label for="plan">Choose Your Plan:</label>
-    <select id="plan" onchange="updatePlanDetails()">
-      <option value="1000">Rs. 1000 Plan</option>
-      <option value="1500" selected>Rs. 1500 Plan</option>
-      <option value="2000">Rs. 2000 Plan</option>
-    </select>
-
-    <div class="note" id="fee-note">
-      <strong>Registration Fee:</strong> Rs. 1500 (One Time)
-    </div>
-
-    <div class="benefits" id="benefits">
-      <ul>
-        <li>✅ Earn Rs. <span id="total-earning">900</span> Daily by Tasks</li>
-        <li>✅ Rs. <span id="referral">500</span> Bonus for Referring 2 Friends</li>
-        <li>✅ Rs. <span id="qa">400</span> for Answering 2 Daily Questions</li>
-        <li>✅ Start Earning from Day 1</li>
-      </ul>
-    </div>
-
-    <div class="payment-info">
-      <strong>JazzCash Payment Details:</strong>
-      Account Number: <strong>03093069635</strong><br>
-      Account Name: <strong>Naima Bibi</strong>
-    </div>
-
-    <form id="registration-form">
-      <input type="text" placeholder="Full Name" required />
-      <input type="email" placeholder="Email Address" required />
-      <input type="tel" placeholder="WhatsApp Number" required />
-      <input type="password" placeholder="Password" required />
-      <input type="password" placeholder="Confirm Password" required />
-
-      <label for="screenshot">Upload Payment Screenshot:</label>
-      <input type="file" id="screenshot" name="screenshot" accept="image/*" required />
-
-      <button type="submit">Register Now</button>
-    </form>
-
-    <div class="trust">
-      🔐 Secure Platform | 📖 Islamic Knowledge | 💬 WhatsApp Support
-    </div>
-
-    <div class="login-link">
-      Already registered? <a href="login.html">Login Here</a>
-    </div>
-
-    <div class="admin-link">
-      <strong>Contact Team:</strong> +923481326140 <br>
-      <a href="https://chat.whatsapp.com/FisBY2zq9Kp8dUMo7ydawk" target="_blank">Join WhatsApp Group</a>
-    </div>
-  </div>
-
-  <!-- WhatsApp Chat Button -->
-  <a href="https://wa.me/923481326140" target="_blank" style="position:fixed;bottom:15px;right:15px;z-index:999;">
-    <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="Chat"/>
-  </a>
-
-  <!-- Plan Logic Script -->
-  <script>
-    const plans = {
-      1000: { fee: 1000, referral: 350, qa: 250 },
-      1500: { fee: 1500, referral: 500, qa: 400 },
-      2000: { fee: 2000, referral: 650, qa: 550 }
-    };
-
-    function updatePlanDetails() {
-      const selected = document.getElementById("plan").value;
-      const plan = plans[selected];
-
-      document.getElementById("fee-note").innerHTML = `<strong>Registration Fee:</strong> Rs. ${plan.fee} (One Time)`;
-      document.getElementById("referral").innerText = plan.referral;
-      document.getElementById("qa").innerText = plan.qa;
-      document.getElementById("total-earning").innerText = plan.referral + plan.qa;
-    }
-
-    // Handle form submission
-    document.getElementById('registration-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      // Hide the form
-      this.style.display = 'none';
-      
-      // Show confirmation message
-      document.getElementById('confirmation-message').style.display = 'block';
-      
-      // Scroll to confirmation message
-      document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth' });
-      
-      // 3 seconds baad login page par redirect
-      setTimeout(function() {
-        window.location.href = "login.html";
-      }, 3000);
-    });
-
-    window.onload = updatePlanDetails;
-  </script>
-
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if(password !== confirmPassword) {
+                alert("پاس ورڈ اور تصدیقی پاس ورڈ مماثل نہیں ہیں!");
+                return;
+            }
+            
+            // صارف کا ڈیٹا محفوظ کریں
+            const userData = {
+                fullName,
+                email,
+                phone,
+                password
+            };
+            
+            // localStorage میں محفوظ کریں
+            localStorage.setItem(email, JSON.stringify(userData));
+            
+            // لاگ ان پیج پر ری ڈائریکٹ کریں
+            alert("کامیابی سے رجسٹر ہو گیا! اب لاگ ان کریں۔");
+            window.location.href = "login.html";
+        });
+    </script>
 </body>
-        </html>
+</html>
